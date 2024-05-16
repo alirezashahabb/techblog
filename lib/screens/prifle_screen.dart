@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:techblog/constant/color_constant.dart';
 import 'package:techblog/constant/string_constant.dart';
 import 'package:techblog/gen/assets.gen.dart';
 
@@ -59,27 +60,42 @@ class ProfileScreen extends StatelessWidget {
           const SizedBox(
             height: 12,
           ),
-          const Divider(
-            indent: 22,
-            endIndent: 22,
+          Divider(
+            indent: size.width / 5,
+            endIndent: size.width / 5,
           ),
-          const Text(MyStrings.myFavBlog),
+          InkWell(
+            splashColor: SolidColors.primaryColor,
+            onTap: () {},
+            child: const Text(
+              MyStrings.myFavBlog,
+            ),
+          ),
           const SizedBox(
             height: 12,
           ),
-          const Divider(
-            indent: 22,
-            endIndent: 22,
+          Divider(
+            indent: size.width / 5,
+            endIndent: size.width / 5,
           ),
-          const Text(MyStrings.myFavPodcast),
+          InkWell(
+              splashColor: SolidColors.primaryColor,
+              onTap: () {},
+              child: const Text(MyStrings.myFavPodcast)),
           const SizedBox(
             height: 12,
           ),
-          const Divider(
-            indent: 22,
-            endIndent: 22,
+          Divider(
+            indent: size.width / 5,
+            endIndent: size.width / 5,
           ),
-          const Text(MyStrings.logOut),
+          InkWell(
+            splashColor: SolidColors.primaryColor,
+            onTap: () {},
+            child: const Text(
+              MyStrings.logOut,
+            ),
+          ),
         ],
       )),
     );

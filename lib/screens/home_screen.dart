@@ -28,49 +28,6 @@ class HomeScreen extends StatelessWidget {
       body: Stack(
         children: [
           BodyScreen(size: size, themData: themData),
-          Positioned(
-            bottom: 0,
-            left: 0,
-            right: 0,
-            child: Container(
-              height: size.height / 10,
-              decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                  colors: GradientColors.bottomNavBackground,
-                  begin: Alignment.center,
-                  end: Alignment.bottomCenter,
-                ),
-              ),
-              child: Container(
-                margin: EdgeInsets.only(
-                    left: bodyMargin, right: bodyMargin, bottom: 6),
-                height: size.height / 8,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30),
-                  gradient: const LinearGradient(
-                    colors: GradientColors.bottomNav,
-                  ),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    IconButton(
-                      onPressed: () {},
-                      icon: Assets.img.home.image(width: 39, height: 39),
-                    ),
-                    IconButton(
-                      onPressed: () {},
-                      icon: Assets.img.write.image(width: 39, height: 39),
-                    ),
-                    IconButton(
-                      onPressed: () {},
-                      icon: Assets.img.user.image(width: 39, height: 39),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
         ],
       ),
     );
