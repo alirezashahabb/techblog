@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    var themData = Theme.of(context);
     return MaterialApp(
       localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,
@@ -25,6 +26,37 @@ class MyApp extends StatelessWidget {
       home: const IntroScreen(),
       title: 'Flutter Demo',
       theme: ThemeData(
+        useMaterial3: false,
+        inputDecorationTheme: InputDecorationTheme(
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(16),
+            borderSide: const BorderSide(
+              width: 1.5,
+            ),
+          ),
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.resolveWith(
+              (states) {
+                if (states.contains(MaterialState.pressed)) {
+                  return SolidColors.primaryColor;
+                }
+                return SolidColors.colorTitle;
+              },
+            ),
+            textStyle: MaterialStateProperty.resolveWith(
+              (states) {
+                if (states.contains(MaterialState.pressed)) {
+                  return themData.textTheme.displayMedium!
+                      .copyWith(fontFamily: 'Vazir');
+                }
+                return themData.textTheme.displayMedium!.copyWith(
+                    fontSize: 17, color: Colors.white, fontFamily: 'Vazir');
+              },
+            ),
+          ),
+        ),
         fontFamily: 'Vazir',
         textTheme: const TextTheme(
           displayLarge: TextStyle(

@@ -9,6 +9,7 @@ class IntroScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var themData = Theme.of(context);
+    var size = MediaQuery.of(context).size;
     return Scaffold(
       body: SafeArea(
           child: Center(
@@ -30,15 +31,55 @@ class IntroScreen extends StatelessWidget {
                   )),
             ),
             ElevatedButton(
-              style: ButtonStyle(
-                  textStyle: MaterialStateProperty.resolveWith((states) {
-                if (states.contains(MaterialState.pressed)) {
-                  return themData.textTheme.displayMedium!
-                      .copyWith(fontSize: 18);
-                }
-                return themData.textTheme.displayMedium;
-              })),
-              onPressed: () {},
+              onPressed: () {
+                showModalBottomSheet(
+                  isScrollControlled: true,
+                  backgroundColor: Colors.transparent,
+                  context: context,
+                  builder: (context) {
+                    return Padding(
+                      padding: EdgeInsets.only(
+                          bottom: MediaQuery.of(context).viewInsets.bottom),
+                      child: Container(
+                        height: size.height / 2,
+                        decoration: const BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(12),
+                            topRight: Radius.circular(12),
+                          ),
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              MyStrings.enterEmaile,
+                              style: themData.textTheme.headlineMedium,
+                            ),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.fromLTRB(24, 24, 24, 12),
+                              child: TextField(
+                                textAlign: TextAlign.center,
+                                decoration: InputDecoration(
+                                  hintText: 'techBlog@gmail.com',
+                                  hintStyle: themData.textTheme.headlineSmall,
+                                ),
+                              ),
+                            ),
+                            ElevatedButton(
+                              onPressed: () {},
+                              child: const Text(
+                                'ادامه',
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                );
+              },
               child: const Text('ثبت نام'),
             )
           ],
