@@ -12,9 +12,50 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.sizeOf(context);
     var themData = Theme.of(context).textTheme;
+    double bodyMargin = size.width / 10;
 
     return Scaffold(
-      drawer: const Drawer(),
+      drawer: Drawer(
+        backgroundColor: SolidColors.scaffoldBg,
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: bodyMargin),
+          child: ListView(
+            children: [
+              DrawerHeader(
+                child: Assets.img.logo.image(scale: 2),
+              ),
+              ListTile(
+                title: const Text('پروفایل کاربری'),
+                onTap: () {},
+              ),
+              const Divider(
+                color: SolidColors.dividerColor,
+              ),
+              ListTile(
+                title: const Text('درباره تک بلاگ'),
+                onTap: () {},
+              ),
+              const Divider(
+                color: SolidColors.dividerColor,
+              ),
+              ListTile(
+                title: const Text('اشتراک گذاری تک بلاگ'),
+                onTap: () {},
+              ),
+              const Divider(
+                color: SolidColors.dividerColor,
+              ),
+              ListTile(
+                title: const Text('تک بلاگ در گیت هاب'),
+                onTap: () {},
+              ),
+              const Divider(
+                color: SolidColors.dividerColor,
+              ),
+            ],
+          ),
+        ),
+      ),
       appBar: AppBar(
         centerTitle: true,
         title: Assets.img.logo.image(height: size.height / 9.8),
