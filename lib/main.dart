@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:techblog/constant/color_constant.dart';
-import 'package:techblog/screens/intro_screen.dart';
+import 'package:techblog/screens/category_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
       supportedLocales: const [
         Locale('fa'), // farsi
       ],
-      home: const IntroScreen(),
+      home: const CategoryScreen(),
       title: 'Flutter Demo',
       theme: ThemeData(
         useMaterial3: false,

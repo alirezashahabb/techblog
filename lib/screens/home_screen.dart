@@ -12,7 +12,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.sizeOf(context);
     var themData = Theme.of(context).textTheme;
-    double bodyMargin = size.width / 10;
+
     return Scaffold(
       drawer: const Drawer(),
       appBar: AppBar(
@@ -106,7 +106,7 @@ class BodyScreen extends StatelessWidget {
             height: 60,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
-              itemCount: tTag.length,
+              itemCount: tag.length,
               itemBuilder: (context, index) {
                 return Container(
                   alignment: Alignment.center,
@@ -121,7 +121,7 @@ class BodyScreen extends StatelessWidget {
                         colors: GradientColors.tags),
                   ),
                   child: Text(
-                    '#${tTag[index].title}',
+                    '#${tag[index].title}',
                     style: themData.displayLarge!.copyWith(fontSize: 18),
                   ),
                 );
